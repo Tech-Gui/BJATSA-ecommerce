@@ -9,20 +9,37 @@ import {
   Carousel,
   Modal,
   Table,
+  Badge,
 } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Cart from "./Cart";
 import data from "./data";
+import ProductTable from "./ProductTable";
 import Rating from "./Rating";
 
 const App = () => {
+  const [cart, setCart] = useState([]);
+
+  const updateCart = (newCart) => {
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    setCart(newCart);
+  };
+
   const [expanded, setExpanded] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const [selectedproduct, setSelectedproduct] = useState(null);
 
   const handleCardClick = (product) => {
     setSelectedproduct(product);
     setShowModal(true);
+  };
+
+  const handleCartClick = () => {
+    setShowCart(true);
   };
 
   const products = data.products;
@@ -391,28 +408,10 @@ const App = () => {
             <Modal.Title>{selectedproduct?.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Product Name</th>
-                  <th>Class</th>
-                  <th>Diameter</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selectedproduct?.classes.map((productClass, index) =>
-                  selectedproduct.diameters.map((diameter, index2) => (
-                    <tr key={`${selectedproduct.id}-${index}-${index2}`}>
-                      <td>{selectedproduct.name}</td>
-                      <td>{productClass}</td>
-                      <td>{diameter}</td>
-                      <td>R{selectedproduct.prices[index][index2]}</td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </Table>
+            <ProductTable
+              selectedproduct={selectedproduct ? selectedproduct : null}
+              updateCart={updateCart}
+            />
           </Modal.Body>
           <Modal.Footer>
             <Button
@@ -427,6 +426,39 @@ const App = () => {
           </Modal.Footer>
         </Modal>
       </Container>
+
+      <Modal show={showCart} onHide={() => setShowCart(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Shopping Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Cart temp={cart} key={cart.length} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            onClick={() => {
+              localStorage.clear();
+              setCart([]);
+            }}
+            style={{
+              backgroundColor: "#911212",
+              border: "none",
+            }}
+          >
+            Clear Cart
+          </Button>
+          <Button
+            onClick={() => setShowCart(false)}
+            style={{
+              backgroundColor: "#911212",
+              border: "none",
+            }}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <div
         style={{
           backgroundColor: " #212529",
@@ -492,6 +524,58 @@ const App = () => {
             <p>Phone: 555-555-5555</p>
           </Col>
         </Row>
+      </div>
+      <div
+        className="d-flex cart-badge-container"
+        style={{
+          cursor: "pointer",
+          position: "fixed",
+          right: 0,
+          top: "95%",
+          transform: "translateY(-50%)",
+          zIndex: 9999, // make sure it's on top of other elements
+
+          filter: "brightness(110%)",
+        }}
+        onClick={() => handleCartClick()}
+      >
+        <div>
+          <i
+            className="fa fa-shopping-cart fa-lg fa-bounce"
+            aria-hidden="true"
+            style={{
+              fontWeight: "bold",
+              color: "#ddd",
+              fontSize: "40px",
+              transform: "translate(1.5rem)",
+              backgroundColor: "#911212",
+              borderRadius: "50%",
+              paddingLeft: "0.1rem",
+              paddingRight: "0.1rem",
+              paddingTop: "0.5rem",
+              paddingBottom: "0.5rem",
+            }}
+          ></i>
+
+          {cart.length >= 0 && (
+            <span
+              style={{
+                paddingLeft: "0rem",
+              }}
+            >
+              <Badge
+                pill
+                bg="danger"
+                className="mx-2"
+                style={{
+                  transform: "translateY(-1.2rem)",
+                }}
+              >
+                {cart.length}
+              </Badge>
+            </span>
+          )}
+        </div>
       </div>
     </>
   );

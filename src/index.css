@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.cart-button:hover {
+  transform: scale(1.2);
+  background-color: #eee;
+  border: 1px solid #aaa;
+}
