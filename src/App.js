@@ -64,7 +64,7 @@ const App = () => {
         expand="md"
         sticky="top"
         expanded={expanded}
-        style={{ height: "6rem" }}
+        style={{ height: "6rem", paddingLeft: "1rem" }}
       >
         <Navbar.Brand href="#home">
           <img
@@ -88,7 +88,7 @@ const App = () => {
           <Nav
             style={{ marginLeft: "auto", marginRight: "2rem", color: "#000" }}
           >
-            <Nav.Link href="#why-choose-us" style={{ color: "#000" }}>
+            <Nav.Link href="#about" style={{ color: "#000" }}>
               About Us
             </Nav.Link>
             <Nav.Link href="#products" style={{ color: "#000" }}>
@@ -100,18 +100,19 @@ const App = () => {
             >
               Services
             </Nav.Link>
-
-            <Button
-              variant="primary"
-              style={{
-                backgroundColor: "#911212",
-                border: "none",
-                color: "#fff",
-                width: "7rem",
-              }}
-            >
-              Contact Us
-            </Button>
+            <Nav.Link href="#contact">
+              <Button
+                variant="primary"
+                style={{
+                  backgroundColor: "#911212",
+                  border: "none",
+                  color: "#fff",
+                  width: "7rem",
+                }}
+              >
+                Contact Us
+              </Button>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -143,14 +144,14 @@ const App = () => {
               width: "10rem",
               marginTop: "10rem",
             }}
-            href="#contact"
+            href="#products"
           >
             Shop Now
           </Button>
         </div>
       </div>
 
-      <div style={{}}>
+      <div id="services">
         <h3
           style={{ color: "#911212", fontWeight: "medium" }}
           className="text-center mt-5"
@@ -313,7 +314,7 @@ const App = () => {
         </Row>
       </div>
 
-      <Container>
+      <Container id="products">
         <div className="d-flex flex-row justify-content-between mt-5">
           <h3 style={{ color: "#000", fontWeight: "bold" }}>
             {" "}
@@ -465,6 +466,7 @@ const App = () => {
           padding: "2rem",
           marginTop: "3rem",
         }}
+        id="about"
       >
         <Row className="d-flex justify-content-around">
           <Col
@@ -508,6 +510,7 @@ const App = () => {
             sm={10}
             md={4}
             style={{ color: "#fff", marginTop: "2rem", marginLeft: "auto" }}
+            id="contact"
           >
             <h5>Contact Us</h5>
             <p>123 Main Street</p>
