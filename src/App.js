@@ -64,7 +64,7 @@ const App = () => {
         expand="md"
         sticky="top"
         expanded={expanded}
-        style={{ height: "6rem", paddingLeft: "1rem" }}
+        style={{ height: "6rem" }}
       >
         <Navbar.Brand href="#home">
           <img
@@ -72,6 +72,7 @@ const App = () => {
             className="text-white ml-3"
             style={{
               width: "10rem",
+              paddingLeft: "1rem",
             }}
           />
         </Navbar.Brand>
@@ -83,7 +84,7 @@ const App = () => {
         />
         <Navbar.Collapse
           id="basic-navbar-nav"
-          style={{ backgroundColor: "#F8F9FA" }}
+          style={{ backgroundColor: "#F8F9FA", paddingLeft: "1rem" }}
         >
           <Nav
             style={{ marginLeft: "auto", marginRight: "2rem", color: "#000" }}
@@ -430,7 +431,7 @@ const App = () => {
 
       <Modal show={showCart} onHide={() => setShowCart(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Quatation</Modal.Title>
+          <Modal.Title>Quotation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Cart temp={cart} key={cart.length} />
