@@ -37,7 +37,7 @@ const Cart = ({ temp }) => {
   return (
     <div>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p>Your Quote is empty.</p>
       ) : (
         <div>
           {groupedItemsArray.map((item) => (

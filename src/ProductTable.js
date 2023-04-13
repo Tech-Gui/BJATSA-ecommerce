@@ -29,7 +29,7 @@ const ProductTable = ({ selectedproduct, updateCart }) => {
             <th>Class</th>
             <th>Diameter</th>
             <th>Price</th>
-            <th>Add to Cart</th>
+            <th>Add to Quote</th>
           </tr>
         </thead>
         <tbody>

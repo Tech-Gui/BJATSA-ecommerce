@@ -429,7 +429,7 @@ const App = () => {
 
       <Modal show={showCart} onHide={() => setShowCart(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Shopping Cart</Modal.Title>
+          <Modal.Title>Quatation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Cart temp={cart} key={cart.length} />
@@ -445,7 +445,7 @@ const App = () => {
               border: "none",
             }}
           >
-            Clear Cart
+            Clear Quote
           </Button>
           <Button
             onClick={() => setShowCart(false)}
@@ -545,7 +545,7 @@ const App = () => {
             aria-hidden="true"
             style={{
               fontWeight: "bold",
-              color: "#ddd",
+              color: "#",
               fontSize: "40px",
               transform: "translate(1.5rem)",
               backgroundColor: "#911212",
