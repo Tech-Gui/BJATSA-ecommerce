@@ -58,7 +58,7 @@ const App = () => {
     return () => clearInterval(typingInterval);
   }, []);
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <Navbar
         bg="light"
         expand="md"
@@ -581,7 +581,7 @@ const App = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
