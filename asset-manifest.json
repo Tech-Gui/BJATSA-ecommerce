@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/BJATSA-ecommerce/static/css/main.b87fbd55.css",
+    "main.js": "/BJATSA-ecommerce/static/js/main.96d71fbd.js",
+    "static/js/787.27dddf3d.chunk.js": "/BJATSA-ecommerce/static/js/787.27dddf3d.chunk.js",
+    "index.html": "/BJATSA-ecommerce/index.html",
+    "main.b87fbd55.css.map": "/BJATSA-ecommerce/static/css/main.b87fbd55.css.map",
+    "main.96d71fbd.js.map": "/BJATSA-ecommerce/static/js/main.96d71fbd.js.map",
+    "787.27dddf3d.chunk.js.map": "/BJATSA-ecommerce/static/js/787.27dddf3d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b87fbd55.css",
+    "static/js/main.96d71fbd.js"
+  ]
+}
